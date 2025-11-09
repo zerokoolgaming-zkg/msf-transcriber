@@ -62,7 +62,7 @@ async function processImage(file, index, worker) {
 async function sendToGoogleSheet(payload) {
   const GAS_URL = getGasUrl(); // your /exec URL from step 2
   if (!GAS_URL) {
-    alert("https://script.google.com/macros/s/AKfycbwyI_ENEAyotl3hj5dY22F92rxhYfAZO_g7cVVANwUFxh8musVgGnnVH7BXZRRQJjWp/exec");
+    alert("https://script.google.com/macros/s/AKfycbwlgrZw3EHkuSEmduC66Of1h15u4RLTjiQ6fZlPTxYaVDLCG8Lzwa6rhC8HtjhfHPY/exec");
     return;
   }
 
