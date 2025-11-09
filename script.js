@@ -69,6 +69,15 @@ document.getElementById('processBtn').onclick = async () => {
   for (let i = 0; i < files.length; i++) {
     await processImage(files[i], i, worker);
   }
+await fetch(GOOGLE_SCRIPT_URL, {
+  method: "POST",
+  mode: "cors",
+  headers: {
+    "Content-Type": "application/json",
+    "Accept": "application/json"
+  },
+  body: JSON.stringify(body)
+);
 
   await worker.terminate();
   const doneMsg = document.createElement('div');
