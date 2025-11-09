@@ -6,11 +6,19 @@
   <title>MSF Screenshot Transcriber (Multi)</title>
   <link rel="stylesheet" href="style.css">
   <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+  <!-- config.js is optional. If present, it should define const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/.../exec' -->
   <script src="config.js"></script>
 </head>
 <body>
   <h1>⚔️ MSF Screenshot Transcriber (Batch)</h1>
   <p>Upload one or more screenshots to extract team data and push to Google Sheet.</p>
+
+  <div class="settings">
+    <label for="apiUrl">Google Apps Script URL</label>
+    <input id="apiUrl" type="text" placeholder="https://script.google.com/macros/s/.../exec">
+    <button id="saveUrlBtn">Save URL</button>
+    <span id="urlStatus"></span>
+  </div>
 
   <input type="file" id="uploadInput" accept="image/*" multiple>
   <div id="preview"></div>

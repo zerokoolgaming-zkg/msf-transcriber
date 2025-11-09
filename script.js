@@ -1,3 +1,27 @@
+
+function getGasUrl() {
+  if (typeof GOOGLE_SCRIPT_URL !== 'undefined' && GOOGLE_SCRIPT_URL) return GOOGLE_SCRIPT_URL;
+  const saved = localStorage.getItem('GAS_URL');
+  return saved || "";
+}
+
+(function initSettings(){
+  const input = document.getElementById('apiUrl');
+  const saved = getGasUrl();
+  if (saved) input.value = saved;
+  document.getElementById('saveUrlBtn').onclick = () => {
+    const val = input.value.trim();
+    if (!val.startsWith('http')) {
+      document.getElementById('urlStatus').textContent = '❌ Enter a valid URL ending in /exec';
+      document.getElementById('urlStatus').className = 'error';
+      return;
+    }
+    localStorage.setItem('GAS_URL', val);
+    document.getElementById('urlStatus').textContent = '✅ Saved';
+    document.getElementById('urlStatus').className = 'success';
+  };
+})();
+
 async function processImage(file, index, worker) {
   const entry = document.createElement('div');
   entry.className = "file-entry";
@@ -24,7 +48,7 @@ async function processImage(file, index, worker) {
     const season = "Current";
     const roomNum = "5";
 
-    const body = {
+    const payload = {
       attack: attackTeam,
       defense: defenseTeam,
       season,
@@ -36,15 +60,24 @@ async function processImage(file, index, worker) {
       victoryPoints
     };
 
-    const res = await fetch(GOOGLE_SCRIPT_URL, {
+    const GAS_URL = getGasUrl();
+    if (!GAS_URL) throw new Error("Google Script URL is not set. Use the Settings box above.");
+
+    const res = await fetch(GAS_URL, {
       method: "POST",
-      body: JSON.stringify(body)
+      mode: "cors",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify(payload)
     });
 
     if (res.ok) {
-      entry.innerHTML = `✅ <span class="success">${file.name}</span> uploaded successfully. (VP ${victoryPoints})`;
+      entry.innerHTML = `✅ <span class="success">${file.name}</span> uploaded successfully.`;
     } else {
-      entry.innerHTML = `❌ <span class="error">${file.name}</span> upload failed.`;
+      const txt = await res.text();
+      entry.innerHTML = `❌ <span class="error">${file.name}</span> upload failed: ${res.status} ${txt}`;
     }
   } catch (err) {
     console.error(err);
@@ -69,15 +102,6 @@ document.getElementById('processBtn').onclick = async () => {
   for (let i = 0; i < files.length; i++) {
     await processImage(files[i], i, worker);
   }
-await fetch(GOOGLE_SCRIPT_URL, {
-  method: "POST",
-  mode: "cors",
-  headers: {
-    "Content-Type": "application/json",
-    "Accept": "application/json"
-  },
-  body: JSON.stringify(body)
-);
 
   await worker.terminate();
   const doneMsg = document.createElement('div');
