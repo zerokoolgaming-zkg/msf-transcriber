@@ -1,2 +1,2 @@
 /* Optional config. You can also set URL via the Settings box. */
-// const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwyI_ENEAyotl3hj5dY22F92rxhYfAZO_g7cVVANwUFxh8musVgGnnVH7BXZRRQJjWp/exec';
+// const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwlgrZw3EHkuSEmduC66Of1h15u4RLTjiQ6fZlPTxYaVDLCG8Lzwa6rhC8HtjhfHPY/exec';
