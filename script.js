@@ -59,17 +59,24 @@ async function processImage(file, index, worker) {
       diff,
       victoryPoints
     };
-const GAS_URL = getGasUrl();
-if (!GAS_URL) throw new Error("Google Script URL is not set. Use the Settings box above.");
+async function sendToGoogleSheet(payload) {
+  const GAS_URL = getGasUrl();   // your deployed /exec URL
+  if (!GAS_URL) throw new Error("Google Script URL not set");
 
-const fd = new FormData();
-fd.append("payload", JSON.stringify(payload));   // <-- put JSON inside a form field
+  // ---- FormData version that Apps Script always understands ----
+  const fd = new FormData();
+  fd.append("payload", JSON.stringify(payload));
 
-const res = await fetch(GAS_URL, {
-  method: "POST",
-  // IMPORTANT: do NOT set Content-Type header manually; the browser will set the correct multipart boundary.
-  body: fd
-});
+  const res = await fetch(GAS_URL, {
+    method: "POST",
+    body: fd,          // <-- don't add headers or mode:cors
+    redirect: "follow" // optional, avoids blocking
+  });
+
+  const txt = await res.text();
+  console.log("Response from Google Script:", txt);
+}
+
 
 
     if (res.ok) {
