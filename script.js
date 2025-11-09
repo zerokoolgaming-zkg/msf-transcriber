@@ -14,7 +14,7 @@ const log = (msg) => {
 function saveGasUrl() {
   const url = el("scriptUrl").value.trim();
   if (!url.startsWith("https://script.google.com/macros/s/")) {
-    alert("❌ Please enter a valid Google Script URL ending in /exec");
+    alert("https://script.google.com/macros/s/AKfycbxfo3DEo1K1dC9ZlCQjjB8PX28-KAaJ2oKxeFxLBc5xrXSygvL4_77Mdc_S0d9YEFFx/exec");
     return;
   }
   localStorage.setItem("googleScriptUrl", url);
