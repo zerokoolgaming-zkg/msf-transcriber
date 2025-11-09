@@ -60,9 +60,9 @@ async function processImage(file, index, worker) {
       victoryPoints
     };
 async function sendToGoogleSheet(payload) {
-  const GAS_URL = getGasUrl(https://script.google.com/macros/s/AKfycbwyI_ENEAyotl3hj5dY22F92rxhYfAZO_g7cVVANwUFxh8musVgGnnVH7BXZRRQJjWp/exec); // your /exec URL from step 2
+  const GAS_URL = getGasUrl(); // your /exec URL from step 2
   if (!GAS_URL) {
-    alert("Missing Google Script URL");
+    alert("https://script.google.com/macros/s/AKfycbwyI_ENEAyotl3hj5dY22F92rxhYfAZO_g7cVVANwUFxh8musVgGnnVH7BXZRRQJjWp/exec");
     return;
   }
 
