@@ -59,19 +59,18 @@ async function processImage(file, index, worker) {
       diff,
       victoryPoints
     };
+const GAS_URL = getGasUrl();
+if (!GAS_URL) throw new Error("Google Script URL is not set. Use the Settings box above.");
 
-    const GAS_URL = getGasUrl();
-    if (!GAS_URL) throw new Error("Google Script URL is not set. Use the Settings box above.");
+const fd = new FormData();
+fd.append("payload", JSON.stringify(payload));   // <-- put JSON inside a form field
 
-    const res = await fetch(GAS_URL, {
-      method: "POST",
-      mode: "cors",
-      headers: {
-        "Content-Type": "application/json",
-        "Accept": "application/json"
-      },
-      body: JSON.stringify(payload)
-    });
+const res = await fetch(GAS_URL, {
+  method: "POST",
+  // IMPORTANT: do NOT set Content-Type header manually; the browser will set the correct multipart boundary.
+  body: fd
+});
+
 
     if (res.ok) {
       entry.innerHTML = `✅ <span class="success">${file.name}</span> uploaded successfully.`;
