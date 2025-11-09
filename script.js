@@ -60,22 +60,24 @@ async function processImage(file, index, worker) {
       victoryPoints
     };
 async function sendToGoogleSheet(payload) {
-  const GAS_URL = getGasUrl();   // your deployed /exec URL
-  if (!GAS_URL) throw new Error("Google Script URL not set");
+  const GAS_URL = getGasUrl(); // your /exec URL from step 2
+  if (!GAS_URL) {
+    alert("Missing Google Script URL");
+    return;
+  }
 
-  // ---- FormData version that Apps Script always understands ----
-  const fd = new FormData();
-  fd.append("payload", JSON.stringify(payload));
+  const form = new FormData();
+  form.append("payload", JSON.stringify(payload)); // must be named 'payload'
 
-  const res = await fetch(GAS_URL, {
+  const response = await fetch(GAS_URL, {
     method: "POST",
-    body: fd,          // <-- don't add headers or mode:cors
-    redirect: "follow" // optional, avoids blocking
+    body: form,
   });
 
-  const txt = await res.text();
-  console.log("Response from Google Script:", txt);
+  const text = await response.text();
+  console.log("Google Apps Script response:", text);
 }
+
 
 
 
