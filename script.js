@@ -99,12 +99,12 @@ async function processOne(file, hashDb){
     console.warn("Set CONFIG.backendUrl to your Apps Script URL.");
     return;
   }
-  await fetch(CONFIG.backendUrl, {
-    method: "POST",
-    headers: {"Content-Type":"application/json"},
-    body: JSON.stringify(payload)
-  });
-}
+await fetch(CONFIG.backendUrl, {
+  method: "POST",
+  // no headers → qualifies as a "simple request" (no CORS preflight)
+  body: JSON.stringify(payload)   // Apps Script reads as e.postData.contents
+});
+
 function doGet(e) {
   return ContentService
     .createTextOutput("ZKG Counter Upload API is running ✅")
