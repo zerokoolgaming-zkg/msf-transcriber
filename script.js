@@ -1,6 +1,6 @@
 // ZKG Counter Upload v3 – with Drive save
 const CONFIG = {
-  backendUrl: "https://script.google.com/macros/s/AKfycbyczNmS1vrD9yrtIcv-W9KUyHnU7RQZBKE15WPO8xSkfsjqkAO9yW3jx7zRNogSbQLW/exec",
+  backendUrl: "https://script.google.com/macros/s/AKfycbzXZ2Uq5AvxUsZNYsnkGYs8V2eb65kijBwpntXRTNoQZNNx2MOteEx3BfmS_rTjsBU8OQ/exec",
   sheetId: "1Mq88NZUs6rIsbQFGmR_4koqxZofYeFS063-S81GtShk",
   sheetTab: "Counters",
   tryPortraitMatch: true,
