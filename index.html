@@ -17,8 +17,18 @@
   <main class="container">
     <div class="panel">
       <div class="controls">
-        <button id="uploadBtn" class="btn primary">Upload Screenshot</button>
-        <input id="fileInput" type="file" accept="image/*" multiple hidden>
+const btn = document.getElementById("uploadBtn");
+const fileInput = document.getElementById("fileInput");
+
+btn.addEventListener("click", () => fileInput.click());
+
+fileInput.addEventListener("change", async (e) => {
+  const files = [...e.target.files];
+  if (!files.length) return;
+  setStatus("Uploading", true);
+  btn.disabled = true;
+  // ... rest of code
+
         <span id="status" class="status">Idle</span>
       </div>
 
