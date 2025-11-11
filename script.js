@@ -1,5 +1,5 @@
 const CONFIG = {
-  backendUrl: "https://script.google.com/macros/s/AKfycbzXZ2Uq5AvxUsZNYsnkGYs8V2eb65kijBwpntXRTNoQZNNx2MOteEx3BfmS_rTjsBU8OQ/exec",
+  backendUrl: "https://script.google.com/macros/s/AKfycbwvP6roOPwwNH32sBGVlyKNlGhBOq7pPwjvVSnnurpyGvxCr8N7KWVWnUTO3Amgk5mgIA/exec",
   sheetId: "1Mq88NZUs6rIsbQFGmR_4koqxZofYeFS063-S81GtShk",
   sheetTab: "Counter" // ensure tab name matches EXACTLY
 };
