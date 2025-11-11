@@ -1,52 +1,25 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ZKG Counter Upload</title>
-  <link rel="stylesheet" href="styles.css">
-  <script defer src="https://cdn.jsdelivr.net/npm/tesseract.js@5.1.0/dist/tesseract.min.js"></script>
-  <script defer src="script.js"></script>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header class="app-header">
+  <header>
     <h1>ZKG Counter Upload</h1>
-    <!-- Optional logo: place msf_logo.png in the same folder -->
-    <img src="msf_logo.png" alt="Marvel Strike Force Logo" onerror="this.style.display='none'">
+    <img src="msf-logo.png" alt="Marvel Strike Force Logo" id="logo" />
   </header>
 
-  <main class="container">
-    <div class="panel">
-      <div class="controls">
-        <button id="uploadBtn" class="btn">Upload Screenshot</button>
-        <input id="fileInput" type="file" accept="image/*" multiple hidden>
-        <span id="status" class="status">Idle</span>
-      </div>
-
-      <div id="preview" class="preview"></div>
-
-      <div class="meta">
-        <details>
-          <summary>Optional metadata (if OCR can’t find it)</summary>
-          <div class="grid">
-            <label>Season <input id="season" type="number" placeholder="e.g., 18"></label>
-            <label>Room <input id="room" type="number" placeholder="e.g., 2"></label>
-          </div>
-        </details>
-      </div>
-    </div>
-
-    <section class="howto">
-      <h2>How this works</h2>
-      <ol>
-        <li>Click <b>Upload Screenshot</b>. You can select one or more images.</li>
-        <li>We OCR the screenshot to pull totals (Attack vs Defense), VP, etc.</li>
-        <li>We compute Punchup / Punchdown and TCP Diff.</li>
-        <li>We POST a row into your Google Sheet (tab <code>Counters</code>) and save the image to Drive.</li>
-      </ol>
-    </section>
+  <main>
+    <p>Upload a Crucible Result screenshot — it’ll parse, compute, and send data to the sheet.</p>
+    <button id="uploadBtn">Upload Screenshot</button>
+    <input type="file" id="fileInput" accept="image/*" hidden />
+    <div id="statusBox" class="status"></div>
+    <div id="preview"></div>
   </main>
 
-  <footer class="app-footer">© 2025 ZKG • <a href="README.html" target="_blank">Setup Guide</a></footer>
+  <script src="script.js"></script>
 </body>
 </html>
