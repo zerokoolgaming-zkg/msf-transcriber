@@ -7,18 +7,22 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
+  <header class="topbar">
     <h1>ZKG Counter Upload</h1>
-    <img src="msf-logo.png" alt="Marvel Strike Force Logo" id="logo" />
+    <img src="msf-logo.png" id="logo" alt="Marvel Strike Force Logo">
   </header>
 
-  <main>
-    <p>Upload a Crucible Result screenshot — it’ll parse, compute, and send data to the sheet.</p>
-    <button id="uploadBtn">Upload Screenshot</button>
-    <input type="file" id="fileInput" accept="image/*" hidden />
+  <main class="container">
+    <p>Upload a Crucible Result screenshot — we’ll parse, compute, and send data to your sheet.</p>
+    <button id="uploadBtn" class="glow">Upload Screenshot</button>
+    <input type="file" id="fileInput" accept="image/*" hidden>
     <div id="statusBox" class="status"></div>
     <div id="preview"></div>
   </main>
+
+  <footer>
+    <p>© Zerokool Gaming · Marvel Strike Force Counter Upload</p>
+  </footer>
 
   <script src="script.js"></script>
 </body>
