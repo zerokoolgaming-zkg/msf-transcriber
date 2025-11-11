@@ -1,37 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Roboto:wght@400;700&display=swap');
+
 body {
-  background: radial-gradient(circle at top, #04132a, #000);
-  color: #fff;
-  font-family: "Segoe UI", sans-serif;
+  background: radial-gradient(circle at top, #091c3b 0%, #000 90%);
+  color: #f0f0f0;
+  font-family: 'Roboto', sans-serif;
   text-align: center;
-  padding: 40px;
+  margin: 0;
+  min-height: 100vh;
 }
 
-header {
-  position: relative;
+.topbar {
+  background: linear-gradient(90deg, #032045, #063d7c);
+  padding: 20px 10px;
+  position: sticky;
+  top: 0;
+  box-shadow: 0 0 20px #0af;
+}
+
+h1 {
+  font-family: 'Orbitron', sans-serif;
+  color: #ffd700;
+  margin: 0;
+  font-size: 2rem;
 }
 
 #logo {
   position: absolute;
   top: 10px;
-  right: 10px;
-  width: 250px;
-  height: 250px;
-  object-fit: contain;
+  right: 15px;
+  width: 150px;
+  height: 150px;
 }
 
-button {
-  background: #0074d9;
+.container {
+  margin-top: 40px;
+}
+
+button.glow {
+  background: #0d6efd;
   color: #fff;
+  font-size: 1.1rem;
   border: none;
-  border-radius: 12px;
-  padding: 15px 25px;
-  font-size: 1.2rem;
+  padding: 12px 25px;
+  border-radius: 10px;
   cursor: pointer;
-  transition: 0.3s;
+  box-shadow: 0 0 10px #0d6efd;
+  transition: all 0.3s ease;
 }
 
-button:hover {
-  background: #1d9bf0;
+button.glow:hover {
+  background: #1982f0;
+  box-shadow: 0 0 20px #00aaff;
 }
 
 .status {
@@ -39,9 +58,8 @@ button:hover {
   margin-top: 20px;
   font-size: 1.1rem;
   font-weight: bold;
-  padding: 12px;
-  border-radius: 8px;
-  transition: all 0.3s;
+  padding: 10px 16px;
+  border-radius: 10px;
 }
 
 .status.info { background: #0074d9; }
@@ -49,8 +67,15 @@ button:hover {
 .status.error { background: #e11d48; box-shadow: 0 0 15px #e11d4890; }
 
 #preview img {
-  margin-top: 20px;
-  max-width: 500px;
-  border: 2px solid #1d9bf0;
-  border-radius: 8px;
+  margin-top: 25px;
+  max-width: 600px;
+  border: 2px solid #00aaff;
+  border-radius: 10px;
+  box-shadow: 0 0 25px #007bff70;
+}
+
+footer {
+  margin-top: 60px;
+  color: #aaa;
+  font-size: 0.9rem;
 }
