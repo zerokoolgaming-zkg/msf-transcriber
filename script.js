@@ -105,6 +105,11 @@ async function processOne(file, hashDb){
     body: JSON.stringify(payload)
   });
 }
+function doGet(e) {
+  return ContentService
+    .createTextOutput("ZKG Counter Upload API is running ✅")
+    .setMimeType(ContentService.MimeType.TEXT);
+}
 
 // Parses 1,627,514 into 1627514
 function parseNumber(s){
