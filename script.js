@@ -24,13 +24,20 @@ fileInput.addEventListener("change", async (e) => {
     const hashDb = await maybeLoadPortraitHash();
     for (const f of files) await processOne(f, hashDb);
     setStatus("Completed ✓");
-    setTimeout(()=>location.reload(), 5000);
+    setTimeout(()=>location.reload(), 10000);
   } catch (err) {
     console.error(err);
     setStatus("Error – check console");
     btn.disabled = false;
   }
 });
+// --- after successful upload ---
+showMessage("Completed ✓ Upload Successful — Data sent to Google Sheet!", "success");
+
+// Optional: refresh after 10 seconds so next upload can start fresh
+setTimeout(() => {
+  location.reload();
+}, 10000);
 
 function setStatus(text, glow=false){
   statusEl.textContent = text;
