@@ -11,13 +11,14 @@
 <body>
   <header class="app-header">
     <h1>ZKG Counter Upload</h1>
-    <p class="sub">Upload a Crucible Result screenshot — we’ll parse, compute, and send this counter to your Google Sheet.</p>
+    <!-- Optional logo: place msf_logo.png in the same folder -->
+    <img src="msf_logo.png" alt="Marvel Strike Force Logo" onerror="this.style.display='none'">
   </header>
 
   <main class="container">
     <div class="panel">
       <div class="controls">
-        <button id="uploadBtn" class="btn primary">Upload Screenshot</button>
+        <button id="uploadBtn" class="btn">Upload Screenshot</button>
         <input id="fileInput" type="file" accept="image/*" multiple hidden>
         <span id="status" class="status">Idle</span>
       </div>
@@ -26,7 +27,7 @@
 
       <div class="meta">
         <details>
-          <summary>Optional metadata (used when OCR can’t determine it)</summary>
+          <summary>Optional metadata (if OCR can’t find it)</summary>
           <div class="grid">
             <label>Season <input id="season" type="number" placeholder="e.g., 18"></label>
             <label>Room <input id="room" type="number" placeholder="e.g., 2"></label>
@@ -41,19 +42,11 @@
         <li>Click <b>Upload Screenshot</b>. You can select one or more images.</li>
         <li>We OCR the screenshot to pull totals (Attack vs Defense), VP, etc.</li>
         <li>We compute Punchup / Punchdown and TCP Diff.</li>
-        <li>We POST a new row into your Google Sheet (tab <code>Counters</code>).</li>
+        <li>We POST a row into your Google Sheet (tab <code>Counters</code>) and save the image to Drive.</li>
       </ol>
-      <p class="note">
-        Heads-up: automatic character-name detection from portraits is best-effort.
-        For high accuracy, build a portrait hash via the
-        <a href="tools/hash-builder.html" target="_blank">Hash Builder</a>
-        and include it as <code>portraits_hash.json</code>.
-      </p>
     </section>
   </main>
 
-  <footer class="app-footer">© 2025 ZKG •
-    <a href="README.html" target="_blank">Setup Guide</a>
-  </footer>
+  <footer class="app-footer">© 2025 ZKG • <a href="README.html" target="_blank">Setup Guide</a></footer>
 </body>
 </html>

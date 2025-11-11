@@ -1,147 +1,23 @@
-/* === ZKG Counter Upload - Marvel Strike Force Inspired === */
-
+/* MSF-inspired theme */
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap');
-
-:root {
-  --bg-dark: #0c0f16;
-  --panel-bg: rgba(30, 40, 55, 0.65);
-  --accent-blue: #1f6feb;
-  --accent-gold: #f1c40f;
-  --text-light: #e6edf3;
+:root{
+  --bg:#0c0f16; --panel:rgba(30,40,55,.65); --ink:#e6edf3;
+  --blue:#1f6feb; --gold:#f1c40f;
 }
-
-html, body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Orbitron', sans-serif;
-  background: radial-gradient(circle at 30% 20%, #131a25, #0c0f16 80%);
-  color: var(--text-light);
-  min-height: 100vh;
-  overflow-x: hidden;
-}
-
-header.app-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.2rem 2rem;
-  border-bottom: 2px solid var(--accent-blue);
-  background: rgba(20, 26, 36, 0.85);
-  backdrop-filter: blur(8px);
-}
-
-header.app-header h1 {
-  font-size: 1.8rem;
-  letter-spacing: 2px;
-  color: var(--accent-gold);
-  text-shadow: 0 0 10px var(--accent-blue);
-  margin: 0;
-}
-
-header.app-header img {
-  width: 250px;
-  height: auto;
-  margin-left: auto;
-  filter: drop-shadow(0 0 6px var(--accent-blue));
-}
-
-/* Container */
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 2rem;
-}
-
-/* Upload panel */
-.panel {
-  background: var(--panel-bg);
-  border-radius: 16px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.6);
-  border: 1px solid rgba(241, 196, 15, 0.3);
-  padding: 2rem;
-  width: 90%;
-  max-width: 800px;
-  backdrop-filter: blur(10px);
-  text-align: center;
-}
-
-/* Button */
-.btn {
-  background: linear-gradient(135deg, var(--accent-blue), var(--accent-gold));
-  border: none;
-  border-radius: 8px;
-  color: #fff;
-  font-size: 1rem;
-  padding: 0.75rem 1.5rem;
-  cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
-  font-weight: bold;
-  letter-spacing: 1px;
-}
-
-.btn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 20px var(--accent-gold);
-}
-
-/* Status text */
-.status {
-  margin-left: 1rem;
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--accent-gold);
-}
-
-.status.glow {
-  animation: glowPulse 1.5s infinite alternate;
-}
-
-@keyframes glowPulse {
-  from { text-shadow: 0 0 4px var(--accent-blue); }
-  to   { text-shadow: 0 0 14px var(--accent-gold); }
-}
-
-/* Image preview */
-.preview img {
-  margin: 1rem;
-  border-radius: 12px;
-  box-shadow: 0 0 12px var(--accent-blue);
-  max-width: 90%;
-}
-
-/* Footer */
-footer.app-footer {
-  margin-top: 3rem;
-  text-align: center;
-  font-size: 0.9rem;
-  color: #999;
-}
-
-footer.app-footer a {
-  color: var(--accent-blue);
-  text-decoration: none;
-}
-footer.app-footer a:hover {
-  color: var(--accent-gold);
-}
-
-/* Metadata area */
-.meta details {
-  margin-top: 1rem;
-  color: var(--text-light);
-}
-
-.grid label {
-  display: flex;
-  flex-direction: column;
-  gap: 0.3rem;
-  margin: 0.5rem 0;
-}
-.grid input {
-  background: #1a222e;
-  color: var(--text-light);
-  border: 1px solid var(--accent-blue);
-  border-radius: 4px;
-  padding: 0.3rem;
-}
+html,body{margin:0;padding:0;background:radial-gradient(circle at 30% 20%,#131a25,#0c0f16 80%);color:var(--ink);font-family:'Orbitron',system-ui,Segoe UI,Roboto,Arial,sans-serif;min-height:100vh}
+.app-header{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;border-bottom:2px solid var(--blue);background:rgba(20,26,36,.85);backdrop-filter:blur(8px)}
+.app-header h1{margin:0;color:var(--gold);letter-spacing:2px;text-shadow:0 0 10px var(--blue)}
+.app-header img{width:250px;height:auto;filter:drop-shadow(0 0 6px var(--blue))}
+.container{display:flex;flex-direction:column;align-items:center;padding:24px}
+.panel{background:var(--panel);backdrop-filter:blur(10px);border:1px solid rgba(241,196,15,.3);border-radius:16px;box-shadow:0 0 20px rgba(0,0,0,.6);padding:20px;width:94%;max-width:900px}
+.controls{display:flex;align-items:center;gap:12px}
+.btn{background:linear-gradient(135deg,var(--blue),var(--gold));border:none;border-radius:10px;color:#fff;font-weight:700;padding:10px 16px;cursor:pointer;transition:transform .15s, box-shadow .15s;letter-spacing:1px}
+.btn:hover{transform:scale(1.04);box-shadow:0 0 18px var(--gold)}
+.status{margin-left:auto;font-weight:700;color:var(--gold)}
+.status.glow{animation:glowPulse 1.2s ease-in-out infinite alternate}
+@keyframes glowPulse{from{text-shadow:0 0 4px var(--blue)} to{text-shadow:0 0 14px var(--gold)}}
+.preview{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:12px}
+.preview img{width:100%;border-radius:12px;box-shadow:0 0 12px var(--blue)}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(160px,1fr));gap:12px}
+.grid input{background:#1a222e;color:var(--ink);border:1px solid var(--blue);border-radius:6px;padding:6px}
+.app-footer{opacity:.85;text-align:center;color:#9aa7b2;padding:24px}
