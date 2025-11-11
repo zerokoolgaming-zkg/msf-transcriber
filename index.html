@@ -1,28 +1,52 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MSF Screenshot Transcriber</title>
-  <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
-  <script src="script.js" defer></script>
-  <style>
-    body { background:#111; color:#0f0; font-family:monospace; padding:20px; }
-    button { margin:5px; padding:8px 14px; background:#222; color:#0f0; border:1px solid #0f0; cursor:pointer; }
-    input { padding:6px; width:90%; margin:5px 0; }
-    #statusLog { background:#000; height:200px; overflow:auto; padding:10px; margin-top:10px; border:1px solid #0f0; }
-  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ZKG Counter Upload</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/tesseract.js@5.1.0/dist/tesseract.min.js"></script>
+  <script defer src="script.js"></script>
 </head>
 <body>
-  <h2>⚔️ MSF Screenshot Transcriber (OCR)</h2>
+  <header class="app-header">
+    <h1>ZKG Counter Upload</h1>
+    <p class="sub">Upload a Crucible Result screenshot — we’ll parse, compute, and this counter to the app.</p>
+  </header>
 
-  <input id="scriptUrl" type="text" placeholder="Paste your Google Script /exec URL here" />
-  <button id="saveUrlBtn">Save URL</button>
-  <br />
+  <main class="container">
+    <div class="panel">
+      <div class="controls">
+        <button id="uploadBtn" class="btn primary">Upload Screenshot</button>
+        <input id="fileInput" type="file" accept="image/*" multiple hidden>
+        <span id="status" class="status">Idle</span>
+      </div>
 
-  <input id="fileInput" type="file" multiple accept="image/*" />
-  <button id="processBtn">Process All Screenshots</button>
+      <div id="preview" class="preview"></div>
 
-  <div id="statusLog"></div>
+      <div class="meta">
+        <details>
+          <summary>Optional metadata (used when OCR can’t determine it)</summary>
+          <div class="grid">
+            <label>Season <input id="season" type="number" placeholder="e.g., 18"></label>
+            <label>Room <input id="room" type="number" placeholder="e.g., 2"></label>
+          </div>
+        </details>
+      </div>
+    </div>
+
+    <section class="howto">
+      <h2>How this works</h2>
+      <ol>
+        <li>Click <b>Upload Screenshot</b>. You can select one or more images.</li>
+        <li>We OCR the screenshot to pull totals (Attack vs Defense), VP, etc.</li>
+        <li>We compute Punchup / Punchdown and TCP Diff.</li>
+        <li>We POST a new row into the app (tab <code>Counters</code>).</li>
+      </ol>
+      <p class="note">Heads-up: automatic character-name detection from portraits is best-effort. For high accuracy, build a portrait hash via the <a href="tools/hash-builder.html" target="_blank">Hash Builder</a> and include it as <code>portraits_hash.json</code>.</p>
+    </section>
+  </main>
+
+  <footer class="app-footer">© 2025 ZKG • <a href="README.html" target="_blank">Setup Guide</a></footer>
 </body>
 </html>
