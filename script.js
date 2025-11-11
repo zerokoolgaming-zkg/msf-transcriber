@@ -1,8 +1,8 @@
 // ZKG Counter Upload – client
 const CONFIG = {
-  backendUrl: "https://script.google.com/macros/s/AKfycbx30xmyrgduDd8aTgHRDjKdlr3zMd_v7ayxw6u8zXWZdNsf6U0Pj1STJdUcEciiT5Y3/exec",
-  sheetId: "1OwPJT-MFL2uDoy6AQgh3cY_V3-suDHn3o3Ir-WLdHp4",
-  sheetTab: "Sheet1",
+  backendUrl: "https://script.google.com/macros/s/AKfycbxK6dZeSIww7vk57mOjLBhxRKTJf9Znrc6NHv06IrY8nJL9cGhG2wqh97ubtlXv8vdd/exec",
+  sheetId: "1Mq88NZUs6rIsbQFGmR_4koqxZofYeFS063-S81GtShk",
+  sheetTab: "Counters",
   tryPortraitMatch: true,
   portraitsHashUrl: "portraits_hash.json" // optional
 };
