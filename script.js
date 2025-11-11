@@ -244,12 +244,12 @@ fileInput?.addEventListener("change", async (e) => {
       };
 
       // text/plain + no-cors to avoid preflight/CORS headaches
-      await fetch(CONFIG.backendUrl, {
-        method: "POST",
-        mode: "no-cors",
-        headers: { "Content-Type": "text/plain;charset=utf-8" },
-        body: JSON.stringify(payload),
-      });
+     await fetch(CONFIG.backendUrl, {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify(payload),
+});
+
 
       showMessage("✅ Upload Successful — Names sent to Google Sheet!", "success");
       setTimeout(() => location.reload(), 6000);
