@@ -1,7 +1,7 @@
-/* ZKG Counter Upload – Sheet + Drive Integration (v2.1) */
+/* ZKG Counter Upload – Sheet + Drive Integration */
 
 const CONFIG = {
-  backendUrl: "https://script.google.com/macros/s/AKfycbxfB9xGSdI_0J7pRCOjkXRnOYmGccBx9pXFsldLHx23wV3MKf48blIDUgU0R8DZdXL5MQ/exec",
+  backendUrl: "https://script.google.com/macros/s/AKfycbx7Z4GwBLDF5IQkQub-oNREMDKUFKmo_f8IO3ecDS71AWUqkVwD531yLpUFu8jIxYk9jA/exec",
   sheetId: "1Mq88NZUs6rIsbQFGmR_4koqxZofYeFS063-S81GtShk",
   sheetTab: "Counter"
 };
@@ -9,7 +9,7 @@ const CONFIG = {
 const uploadBtn = document.getElementById("uploadBtn");
 const fileInput = document.getElementById("fileInput");
 const statusBox = document.getElementById("statusBox");
-const preview   = document.getElementById("preview");
+const preview = document.getElementById("preview");
 
 function showMessage(msg, type = "info") {
   statusBox.textContent = msg;
@@ -25,41 +25,35 @@ fileInput.addEventListener("change", async e => {
   const reader = new FileReader();
   reader.onload = async () => {
     const base64Image = reader.result;
-    preview.innerHTML = `<img src="${base64Image}" style="max-width:90%;border:1px solid #555;" />`;
-    showMessage("Uploading and logging to sheet…", "info");
+    preview.innerHTML = `<img src="${base64Image}" class="previewImg" />`;
+    showMessage("Uploading to Google Drive + logging to Sheet…", "info");
 
     const payload = {
       sheetId: CONFIG.sheetId,
       sheetTab: CONFIG.sheetTab,
       image: base64Image,
-      textExtracted: "Screenshot uploaded",  // placeholder for OCR text
-      source: "Website Upload"
+      comment: "Screenshot uploaded successfully"
     };
 
     try {
-      console.log("POSTing to backend:", CONFIG.backendUrl);
       const res = await fetch(CONFIG.backendUrl, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload)
       });
+      const json = await res.json();
 
-      const text = await res.text();
-      console.log("Response:", text);
-
-      let json = {};
-      try { json = JSON.parse(text); } catch {}
       if (json.ok) {
-        showMessage("✅ Logged to sheet & saved to Drive!", "success");
+        showMessage("✅ Upload complete — row " + json.row + " logged!", "success");
+        console.log("✅ Google Drive URL:", json.imageUrl);
       } else {
-        showMessage("⚠️ Upload ok but sheet append failed.", "error");
+        showMessage("⚠️ Upload failed: " + (json.error || "Unknown error"), "error");
+        console.error(json);
       }
-
     } catch (err) {
-      console.error("Upload failed:", err);
+      console.error("❌ Upload error:", err);
       showMessage("❌ Upload failed: " + err.message, "error");
     }
   };
-
   reader.readAsDataURL(file);
 });
