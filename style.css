@@ -1,46 +1,31 @@
 body {
-  font-family: "Bahnschrift", "Oswald", sans-serif;
-  background: radial-gradient(circle at top, #01122b, #000);
-  color: #fff;
+  background: radial-gradient(circle at top, #0a0f2c, #000);
+  color: #e8e8e8;
+  font-family: "Orbitron", sans-serif;
   text-align: center;
-  margin: 0;
-  padding: 2em;
+  padding: 40px;
 }
 
 h1 {
-  font-size: 2.5em;
-  color: #ffcc00;
-  text-shadow: 2px 2px 8px #000;
-}
-
-button {
-  background: linear-gradient(180deg, #0066cc, #0044aa);
-  border: none;
-  color: #fff;
-  padding: 0.8em 1.5em;
-  border-radius: 10px;
-  font-size: 1em;
-  cursor: pointer;
-  transition: 0.2s;
-  box-shadow: 0 0 10px #003366;
-}
-button:hover {
-  background: linear-gradient(180deg, #0077ee, #0044aa);
-  box-shadow: 0 0 15px #0099ff;
+  font-size: 2.2em;
+  color: #ffb300;
+  text-shadow: 0 0 10px #ffb300;
 }
 
 .status {
-  margin-top: 1em;
-  font-weight: bold;
+  margin-top: 10px;
+  padding: 8px;
+  border-radius: 8px;
 }
-.status.success { color: #00ff88; }
-.status.error { color: #ff5555; }
-.status.info { color: #ffd966; }
+.status.info { color: #00bcd4; }
+.status.success { color: #00ff84; }
+.status.error { color: #ff5252; }
 
 .previewImg {
-  max-width: 90%;
-  border-radius: 8px;
-  border: 2px solid #0044aa;
-  margin-top: 15px;
-  box-shadow: 0 0 15px #003366;
+  width: 90%;
+  max-width: 700px;
+  margin-top: 20px;
+  border: 2px solid #00bcd4;
+  box-shadow: 0 0 20px #00bcd4;
+  border-radius: 10px;
 }
