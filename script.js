@@ -1,7 +1,7 @@
 /* ZKG Counter Upload – Sheet + Drive Integration */
 
 const CONFIG = {
-  backendUrl: "https://script.google.com/macros/s/AKfycbwniRtY-upArimNhTdvI3QrgFVL67d5kPRzl_du_FuaSd6x_IGnuEBRa287aeI1Zq0-/exec",
+  backendUrl: "https://script.google.com/macros/s/AKfycbwwS--_eLae1wi3Z-uE8eGVO2QxhKOdQb95k4YLDd_M_tGydf4Cc7SG55px07zLjUhr2A/exec",
   sheetId: "1Mq88NZUs6rIsbQFGmR_4koqxZofYeFS063-S81GtShk",
   sheetTab: "Counter"
 };
