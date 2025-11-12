@@ -1,7 +1,7 @@
 /* ZKG Counter Upload (Frontend v2 — JSON POST fix) */
 
 const CONFIG = {
-  backendUrl: "https://script.google.com/macros/s/AKfycbwk9kc_UGbfJeXU_27B1vhZmSK4D50ZOEdmKdGQk9oCi8ezwB-zMxR9xMYieDHcPh6IRw/exec",
+  backendUrl: "https://script.google.com/macros/s/AKfycbwf_pWGtRHDIvhDzMdh3K4QeWI-WIFgjCTGr62dA0rwQDHFJGiNUzgJrenGItCiU80VDQ/exec",
   sheetId: "1Mq88NZUs6rIsbQFGmR_4koqxZofYeFS063-S81GtShk",
   sheetTab: "Counter"
 };
