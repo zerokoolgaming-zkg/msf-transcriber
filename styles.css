@@ -1,64 +1,22 @@
 body {
-  margin: 0;
-  font-family: "Orbitron", sans-serif;
-  background: radial-gradient(circle at top, #0c0f1a 0%, #000 100%);
-  color: #d4d4d4;
-  text-align: center;
-  min-height: 100vh;
-}
-
-.container {
-  max-width: 900px;
-  margin: 3rem auto;
-  padding: 2rem;
-  background: rgba(20, 20, 30, 0.85);
-  border-radius: 20px;
-  box-shadow: 0 0 25px rgba(0, 180, 255, 0.3);
-}
-
-.logo {
-  width: 250px;
-  height: auto;
-  position: absolute;
-  top: 25px;
-  right: 25px;
-}
-
-h1 {
-  font-size: 2.3rem;
-  color: #ffd54f;
-  text-shadow: 0 0 15px #ff8;
-}
-
-button {
-  background: linear-gradient(90deg, #00b0ff, #0077ff);
-  border: none;
-  padding: 0.8rem 1.8rem;
-  font-size: 1rem;
-  font-weight: 700;
+  background: radial-gradient(circle at top, #00142b, #000);
   color: #fff;
-  border-radius: 10px;
+  font-family: 'Bahnschrift', 'Arial Black', sans-serif;
+  text-align: center;
+  padding: 2em;
+}
+h1 { color: #ffc800; text-shadow: 2px 2px 4px #000; }
+.logo { margin: 1em auto; display: block; }
+button {
+  background: #0099cc;
+  border: none;
+  color: #fff;
+  padding: 0.6em 1.2em;
+  border-radius: 8px;
+  font-weight: bold;
   cursor: pointer;
-  box-shadow: 0 0 15px #0077ff;
-  transition: all 0.25s ease;
 }
-
-button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 25px #00b0ff;
-}
-
-#status {
-  margin-top: 1rem;
-  font-size: 1.2rem;
-  color: #0ff;
-  text-shadow: 0 0 10px #0ff;
-}
-
-.preview img {
-  margin-top: 1.5rem;
-  max-width: 100%;
-  border: 3px solid #00b0ff;
-  border-radius: 10px;
-  box-shadow: 0 0 20px rgba(0, 180, 255, 0.4);
-}
+button:hover { background: #00bbee; }
+.status { margin-top: 1em; font-weight: bold; }
+.status.error { color: #ff5a5a; }
+.status.success { color: #80ff80; }
