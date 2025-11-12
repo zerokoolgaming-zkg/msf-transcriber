@@ -2,7 +2,7 @@
 
 const CONFIG = {
   // Google Apps Script Web App URL
-  backendUrl: "https://script.google.com/macros/s/AKfycbzCFMqmVd0KWkStyAb_oqUtzMHfp93wRqixPI_SuQXrSiU35wGHc1Plt0-E7b2Oau9MDQ/exec",
+  backendUrl: "https://script.google.com/macros/s/AKfycbwR5MW4M1YHnn1rS6oYn3rjUHROdtooYVnw5f4e2IPRnFMCZruuLjl-gk0CjHyNPr-dwg/exec",
 
   // Sheet destination
   sheetId: "1Mq88NZUs6rIsbQFGmR_4koqxZofYeFS063-S81GtShk",
