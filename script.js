@@ -1,7 +1,7 @@
 /* ZKG Counter Upload – MarvelStrikeForce Styled */
 
 const CONFIG = {
-  backendUrl: "https://script.google.com/macros/s/AKfycbyWp05fhpGZ_dHvqjkRCLCDSeffifLXqHsCZ31UJArNmrESrDaI4aNW0Q9wUCS3P09hnQ/exec",
+  backendUrl: "https://script.google.com/macros/s/AKfycbxY0BxEM7XOLY8PBaxWK6Ld88A5g22l9r0_02G4e-SSjMGUtDVxonouNKFH48NPMgA5/exec",
   sheetId: "1Mq88NZUs6rIsbQFGmR_4koqxZofYeFS063-S81GtShk",
   sheetTab: "Counter"
 };
