@@ -1,7 +1,7 @@
-/* ZKG Counter Upload – Sheet + Drive Integration */
+/* ZKG Counter Upload – MarvelStrikeForce Styled */
 
 const CONFIG = {
-  backendUrl: "https://script.google.com/macros/s/AKfycbw0yqbgXTtitvH7517SkcLpSi_vXlcJu5wNqARnS7Nm4o5VU0GisMcK3cvOQtVRM1CGPg/exec",
+  backendUrl: "https://script.google.com/macros/s/AKfycbyWp05fhpGZ_dHvqjkRCLCDSeffifLXqHsCZ31UJArNmrESrDaI4aNW0Q9wUCS3P09hnQ/exec",
   sheetId: "1Mq88NZUs6rIsbQFGmR_4koqxZofYeFS063-S81GtShk",
   sheetTab: "Counter"
 };
@@ -26,7 +26,7 @@ fileInput.addEventListener("change", async e => {
   reader.onload = async () => {
     const base64Image = reader.result;
     preview.innerHTML = `<img src="${base64Image}" class="previewImg" />`;
-    showMessage("Uploading to Google Drive + logging to Sheet…", "info");
+    showMessage("Uploading screenshot to Drive...", "info");
 
     const payload = {
       sheetId: CONFIG.sheetId,
@@ -41,17 +41,16 @@ fileInput.addEventListener("change", async e => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload)
       });
-      const json = await res.json();
 
+      const json = await res.json();
       if (json.ok) {
-        showMessage("✅ Upload complete — row " + json.row + " logged!", "success");
-        console.log("✅ Google Drive URL:", json.imageUrl);
+        showMessage(`✅ Upload complete — row ${json.row} logged!`, "success");
+        console.log("Drive URL:", json.imageUrl);
       } else {
         showMessage("⚠️ Upload failed: " + (json.error || "Unknown error"), "error");
-        console.error(json);
       }
     } catch (err) {
-      console.error("❌ Upload error:", err);
+      console.error(err);
       showMessage("❌ Upload failed: " + err.message, "error");
     }
   };
