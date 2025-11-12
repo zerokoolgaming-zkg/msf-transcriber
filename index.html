@@ -1,21 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <title>ZKG Counter Upload</title>
-  <link rel="stylesheet" href="style.css" />
+  <base target="_top">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  
-  <main class="container">
-    <p class="intro">Upload a Crucible Result screenshot — we’ll parse, compute, and add the data to the Counter App.</p>
-    <button id="uploadBtn" class="upload-btn">Upload Screenshot</button>
-    <input type="file" id="fileInput" accept="image/*" style="display:none" />
-    <div id="statusBox" class="status"></div>
-    <div id="preview"></div>
-  </main>
+  <h1>ZKG Counter Upload</h1>
+  <p>Upload a Crucible screenshot — it will save to Drive and log this matchup into the Counter App.</p>
 
-  <footer class="footer-bar">© 2025 ZeroKoolGamer – Counter Uploader</footer>
-  <script src="script.js"></script>
+  <input type="file" id="fileInput" accept="image/*" />
+  <button onclick="upload()">Upload Screenshot</button>
+
+  <p id="status"></p>
+  <img id="preview" style="max-width:90%;margin-top:10px;display:none;"/>
+
+  <script>
+  function upload() {
+    const file = document.getElementById("fileInput").files[0];
+    if (!file) return alert("Pick a file first!");
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      document.getElementById("status").innerText = "Uploading...";
+      google.script.run
+        .withSuccessHandler(res => {
+          if (res.ok) {
+            document.getElementById("status").innerText =
+              "✅ Uploaded! Row " + res.row;
+            const img = document.getElementById("preview");
+            img.src = res.url;
+            img.style.display = "block";
+          } else {
+            document.getElementById("status").innerText = "❌ " + res.error;
+          }
+        })
+        .withFailureHandler(err => {
+          document.getElementById("status").innerText = "❌ " + err.message;
+        })
+        .uploadImage(e.target.result);
+    };
+    reader.readAsDataURL(file);
+  }
+  </script>
 </body>
 </html>
